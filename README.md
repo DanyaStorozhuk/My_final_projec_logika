@@ -37,29 +37,48 @@ The application also includes an administrator role with extended functionality,
 
 ## 🚀 Installation
 
-Clone the repository:
-git clone https://github.com/DanyaStorozhuk/My_final_projec_logika.git
-cd My_FINAL_PROJEC_LOGIKA
+1. **Clone the Repository**:
 
-Set up a virtual environment:
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+    ```bash
+    git clone https://github.com/DanyaStorozhuk/My_final_projec_logika.git
+    cd My_final_projec_logika
+    ```
 
-Install dependencies:
-pip install -r requirements.txt
+2. **Set Up a Virtual Environment**:
 
-Apply migrations:
-python manage.py makemigrations
-python manage.py migrate
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    Install Dependencies:
+    ```
 
-Create a superuser (optional):
-python manage.py createsuperuser
+3. **Install Dependencies**:
 
-Run the development server:
-python manage.py runserver
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Access the application at:
-http://127.0.0.1:8000
+4. **Apply Migrations**:
+
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+5. **Create a Superuser (Optional)**:
+
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+6. **Run the Development Server**:
+
+    ```bash
+    python manage.py runserver
+    ```
+
+
+Access the application at http://127.0.0.1:8000
 
 ## 📂 Project Structure
 main/                 # Main Django app — handles core features: workers, reviews, menu, food delivery, reservations.
