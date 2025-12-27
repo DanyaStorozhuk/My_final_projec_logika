@@ -63,8 +63,11 @@ http://127.0.0.1:8000
 
 ## 📂 Project Structure
 main/                 # Main Django app — handles core features: workers, reviews, menu, food delivery, reservations.
+
 my_final_project/     # Django project configuration (settings, urls, wsgi, asgi)
+
 media/                # User-uploaded files (images, uploads)
+
 templates/            # HTML templates (Django Templates)
 
 
