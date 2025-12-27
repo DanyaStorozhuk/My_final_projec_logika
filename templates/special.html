@@ -1,0 +1,95 @@
+{% block content %}
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000;
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-box {
+        background-color: #171717;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* відступ між списком та кнопкою */
+    }
+
+    .styled-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        width: 300px;
+
+        background-color: #171717;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .styled-list li {
+        background-color: #252525;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.1em;
+        text-align: center;
+        transition: .3s ease;
+    }
+
+    .styled-list li:hover {
+        transform: scale(1.05);
+        background-color: #323232;
+    }
+
+    .submit-btn {
+        display: block;
+        width: 300px;
+        padding: 12px 0;
+
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+
+        background: linear-gradient(135deg, #d4af37, #f5d76e);
+        color: #000;
+
+        transition: 0.5s ease-in-out;
+        text-decoration: none;
+    }
+
+    .submit-btn:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #f5d76e, #d4af37);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    }
+</style>
+
+<div class="form-box">
+    <ul class="styled-list">
+        {% for i in special %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'main:start_page' %}" class="submit-btn">
+        Головна сторінка
+    </a>
+</div>
+
+{% endblock %}

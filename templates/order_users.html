@@ -1,0 +1,126 @@
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;     
+        align-items: center;        
+        flex-direction: column;
+        padding-top: 30px;       
+    }
+
+    h1 {
+        color: #ffd700;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .orders-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .order-card {
+        background-color: #171717;
+        color: white;
+        width: 300px;       /* ширина стала більше */
+        min-height: 150px;  /* висота трохи менша */
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); 
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    .order-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+    }
+
+    select {
+        padding: 7px 10px;
+        border-radius: 6px;
+        background-color: #252525;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    select:hover {
+        background-color: #323232;
+    }
+
+    .submit-btn-return {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 50%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #e4e3dd, #b1aea3);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .submit-btn {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 50%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #d4af37, #f5d76e);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .submit-btn:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #f5d76e, #d4af37);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    }
+</style>
+
+<h1>List of Orders</h1>
+
+<div class="orders-container">
+    {% for i in order %}
+    <div class="order-card">
+        <p><strong>User:</strong> {{ i.user.username }}</p>
+        <p><strong>Time:</strong> {{ i.time }}</p>
+        <form method="post" action="{% url 'main:order_update' i.id %}">
+            {% csrf_token %}
+            <select name="status" onchange="this.form.submit()">
+                <option value="pending" {% if i.status == "pending" %}selected{% endif %}>Очікує підтвердження</option>
+                <option value="confirmed" {% if i.status == "confirmed" %}selected{% endif %}>Підтверджено</option>
+                <option value="cancelled" {% if i.status == "cancelled" %}selected{% endif %}>Скасовано</option>
+            </select>
+        </form>
+    </div>
+    {% endfor %}
+    <a href="{% url 'main:start_page' %}" class="submit-btn">Головна сторінка</a>
+</div>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<h2>Список наших відгуків</h2>
+
+<section class="form">
+    {% if comments %}
+        {% for comment in comments %}
+            <div class="comment-item">
+                <div class="comment-date">{{ comment.data }}</div>
+                <div class="comment-author">{{ comment.author.username }}</div>
+                <div class="comment-text">{{ comment.text }}</div>
+
+                {% if comment.rating %}
+                    <div class="comment-rating">Рейтинг: {{ comment.rating }}/5</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <a href="{% url 'main:start_page' %}" class="submit-btn">Головна сторінка</a>
+
+    {% else %}
+        <div class="comment-item" style="text-align:center;">
+            Відгуків поки що немає
+        </div>
+
+        <a href="{% url 'main:start_page' %}" class="submit-btn">Головна сторінка</a>
+    {% endif %}
+</section>
+
+{% endblock %}

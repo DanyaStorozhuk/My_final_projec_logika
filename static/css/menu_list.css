@@ -1,0 +1,117 @@
+:root {
+    --bg-color: #000;
+    --form-bg: #171717;
+    --input-bg: #252525;
+    --input-focus: #323232;
+    --button-bg: #252525;
+    --button-hover: #000;
+    --text-color: #fff;
+    --author-color: #ffd700;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 420px;
+    max-width: 90vw;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+}
+
+/* НОВИЙ КОНТЕЙНЕР ДЛЯ ПРОКРУТКИ */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 70vh;           /* або 65vh, 75vh - підбери під себе */
+    overflow-y: auto;
+    padding-right: 8px;         /* щоб скрол не прилипав до краю */
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 #171717;
+}
+
+/* Стилізація скролбара для Webkit (Chrome, Safari, Edge) */
+.menu-container::-webkit-scrollbar {
+    width: 8px;
+}
+.menu-container::-webkit-scrollbar-track {
+    background: #171717;
+    border-radius: 10px;
+}
+.menu-container::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 10px;
+}
+.menu-container::-webkit-scrollbar-thumb:hover {
+    background: #f5d76e;
+}
+
+.comment-item {
+    background-color: var(--form-bg);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* щоб картки не стискалися */
+}
+
+.comment-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* решта стилів без змін */
+.comment-type { font-weight: bold; color: var(--author-color); margin-bottom: 10px; font-size: 1.1em; }
+.comment-title { font-size: 1em; margin-bottom: 8px; line-height: 1.4; }
+.comment-rating { font-size: 0.9em; color: #ccc; font-style: italic; }
+.comment-name, .comment-photo, .comment-price { font-size: 0.9em; color: #fefefe; font-style: italic; }
+
+
+
+.add-to-fav {
+    margin: 10px 0 6px 0;
+    text-align: center;
+}
+
+.add-to-fav button {
+    background: linear-gradient(135deg, #d4af37, #f5d76e);
+    color: #000;
+    border: none;
+    padding: 4px 9px;           /* було 10px 18px */
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.75em;          /* було 1em */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.add-to-fav button:hover {
+    transform: translateY(-2px) scale(1.1);
+    background: linear-gradient(135deg, #f5d76e, #d4af37);
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+}
+
+.add-to-fav button:active {
+    transform: translateY(1px);
+}

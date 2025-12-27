@@ -1,0 +1,143 @@
+{% block content %}
+
+<style>
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000; /* чорний фон */
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px;
+        background-color: #171717;
+        border-radius: 20px;
+        width: 300px;
+        text-align: center;
+        transition: .4s ease-in-out;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+    .form:hover {
+        transform: scale(1.05);
+        border: 1px solid black;
+    }
+
+
+    .form-box {
+        width: 400px;
+        padding: 30px;
+        position: relative;
+    }
+
+    
+    .form-box form p {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: white;
+        font-size: 1em;
+    }
+
+    
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background-color: #252525;
+        color: white;
+        font-size: 1em;
+        outline: none;
+    }
+
+    .form-box input:focus,
+    .form-box select:focus,
+    .form-box textarea:focus {
+        border-color: #555;
+    }
+
+
+    .submit-btn {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .submit-btn:hover {
+        background-color: black;
+    }
+
+    
+    .form-box h3,h2 {
+        color: white;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .submit-btn {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #d4af37, #f5d76e);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .submit-btn:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #f5d76e, #d4af37);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    }
+
+    .submit-btn-return {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #e4e3dd, #b1aea3);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+</style>
+
+<div class="form form-box">
+    <h3>Створення замовлення</h3>
+
+    <form  method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-btn">
+            Замовити стіл
+        </button>
+    </form>
+    <a href="{% url 'main:menu'%}" class="submit-btn-return">повернутися до списку меню</a>
+</div>
+
+{% endblock %}

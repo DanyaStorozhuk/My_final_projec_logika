@@ -1,0 +1,173 @@
+    :root {
+        --bg-color: #000;
+        --form-bg: #171717;
+        --input-bg: #252525;
+        --input-focus: #323232;
+        --button-bg: #252525;
+        --button-hover: #000;
+        --text-color: #fff;
+        --author-color: #ffd700;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: var(--bg-color);
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 420px;
+        max-width: 90vw;
+        align-items: center; /* ← центрує кнопку */
+    }
+
+    h2 {
+        color: var(--text-color);
+        font-size: 2em;
+        text-align: center;
+        margin: 0;
+    }
+
+    .comment-item {
+        background-color: var(--form-bg);
+        color: var(--text-color);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%; /* щоб усі коментарі були одного розміру */
+    }
+
+    .comment-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .comment-author {
+        font-weight: bold;
+        color: var(--author-color);
+        margin-bottom: 10px;
+        font-size: 1.1em;
+    }
+
+    .comment-text {
+        font-size: 1em;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    .comment-rating {
+        font-size: 0.9em;
+        color: #ccc;
+        font-style: italic;
+    }
+
+    .comment-date {
+        font-size: 0.9em;
+        color: #fefefe;
+        font-style: italic;
+        margin-bottom: 8px;
+    }
+
+    
+    .submit-btn {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #d4af37, #f5d76e);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .submit-btn:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #f5d76e, #d4af37);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    }
+
+    .submit-btn-return {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #e4e3dd, #b1aea3);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    form:hover {
+        transform: scale(1.05);
+        border: 1px solid black;
+    }
+
+
+    .form-box {
+        width: 400px;
+        padding: 30px;
+        position: relative;
+    }
+
+
+    .form-box form p {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: white;
+        font-size: 1em;
+    }
+
+
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background-color: #252525;
+        color: white;
+        font-size: 1em;
+        outline: none;
+    }
+
+    .form-box input:focus,
+    .form-box select:focus,
+    .form-box textarea:focus {
+        border-color: #555;
+    }
+
+
+
+
+    .form-box h3,h2 {
+        color: white;
+        margin-bottom: 15px;
+        text-align: center;
+    }

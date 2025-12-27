@@ -1,0 +1,85 @@
+:root {
+        --bg-color: #000;
+        --form-bg: #171717;
+        --text-color: #fff;
+        --author-color: #ffd700;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: var(--bg-color);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .orders-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 420px;
+        max-width: 90vw;
+        align-items: center; 
+    }
+
+
+    .order-card {
+        background-color: var(--form-bg);
+        color: var(--text-color);
+        padding: 22px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .order-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .order-label {
+        font-weight: bold;
+        color: var(--author-color);
+        margin-bottom: 8px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+    .order-value {
+        font-size: 1em;
+        line-height: 1.5;
+        color: #eee;
+        margin-bottom: 14px;
+    }
+
+    /* Стиль селекту */
+    select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        background-color: #252525;
+        color: white;
+        border-radius: 8px;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    select:hover {
+        background-color: #333;
+    }
+
+    @media (max-width: 480px) {
+        .orders-container {
+            width: 95vw;
+        }
+        .order-card {
+            padding: 18px;
+        }
+    }
+    

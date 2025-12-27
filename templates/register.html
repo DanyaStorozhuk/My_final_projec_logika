@@ -1,0 +1,95 @@
+{% block content %}
+
+<style>
+    /* Фон сторінки — чорний і форма по центру */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000; /* чорний фон */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Стиль контейнера форми */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 30px;
+      background-color: #171717;
+      border-radius: 25px;
+      width: 350px;
+      text-align: center;
+      transition: 0.4s ease-in-out;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .form:hover {
+      transform: scale(1.05);
+      border: 1px solid #111;
+    }
+
+    /* Заголовок */
+    #heading {
+      color: white;
+      font-size: 1.6em;
+      margin-bottom: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* Поля введення */
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background-color: #252525;
+      color: white;
+      font-size: 1em;
+      transition: 0.3s ease;
+    }
+
+
+    p {
+    color: white;
+    }
+
+    input:focus {
+      background-color: #323232;
+      box-shadow: 0 0 8px #444;
+    }
+
+    /* Кнопка */
+    .button {
+      padding: 0.8em;
+      border-radius: 8px;
+      border: none;
+      transition: 0.3s ease-in-out;
+      background-color: #252525;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: black;
+      color: white;
+      transform: scale(1.03);
+    }
+</style>
+</head>
+<body>
+  <form method="post" class="form">
+    {% csrf_token %}
+    <div id="heading">Реєстрація</div>
+    {{ form.as_p }}
+    <button type="submit" class="button">Реєстрація</button>
+  </form>
+</body>
+</html>
+
+{% endblock %}

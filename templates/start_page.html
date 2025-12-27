@@ -1,0 +1,282 @@
+
+
+{% block content %}
+<style>
+  
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+ 
+    .menu-box {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px;
+        background-color: #171717;
+        border-radius: 20px;
+        width: 350px;
+        text-align: center;
+        transition: .4s ease-in-out;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-box-informacion {
+        display: flex;
+        flex-direction: row;   
+        flex-wrap: wrap;       
+        gap: 20px;
+
+        padding: 25px;
+        background-color: #171717;
+
+        width: 100%;           
+        max-width: 1850px;     
+        text-align: center;
+
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+
+    .menu-box-informacion > * {
+        flex: 1 1 auto;        
+        min-width: 200px;       
+    }
+
+  
+    .menu-box h3 {
+        color: white;
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    
+    .menu-link {
+        padding: 0.7em;
+        border-radius: 8px;
+        border: none;
+        transition: .3s ease-in-out;
+        background-color: #252525;
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        display: block;
+    }
+
+    .menu-link:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .box1 { position: absolute; top: 450px; left: 1450px; }
+    .box2 { position: absolute; top: 700px; left: 1450px; }
+    .box3 { position: absolute; top: 450px; left: 100px; }
+    .box4 { position: absolute; top: 1600px; left: 0px; width: 1850px; height: 200px; transform-origin: center;}
+    .box5 { position: absolute; top: 10px; left: 450px; }
+    .box6 { position: absolute; top: 50px; left: 1700px; width: 100px; height: 50px;}
+
+
+    .menu-box h4,
+    .menu-box h5,
+    .menu-box h6 {
+        color: white;
+        margin: 5px 0;   
+        text-align: left;      
+        font-weight: normal;   
+    }
+
+    .background-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: #111;
+    
+    }
+
+    .hours-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .hours-title {
+        color: white;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    
+    .hours-popup {
+        display: none;
+        position: absolute;
+        background: #252525;
+        padding: 15px;
+        border-radius: 10px;
+        width: 220px;
+        left: 0;
+        top: 30px;
+        box-shadow: 0 0 10px black;
+        z-index: 10;
+    }
+
+    .hours-popup.show {
+        display: block;
+    }
+    
+
+    .hours-popup p {
+        color: white;
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+    .menu-center {
+        margin-top: 1300px;
+    }
+    .menu-box-informacion.box4 {
+        position: relative;
+        left: auto;
+        width: 90%;
+        max-width: 850px;
+        top: 400px; 
+        height: auto;
+        margin: 80px auto 50px auto;  /* відступ зверху, по центру, відступ знизу */
+        padding: 50px 30px;
+        text-align: center;
+        background-color: #171717;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .menu-box-informacion.box4 h1 {
+        margin: 0 0 15px 0;
+        font-size: 2.2em;
+        color: white;
+    }
+
+    .menu-box-informacion.box4 h3 {
+        margin: 10px 0;
+        font-size: 1.3em;
+        color: #ffd700;
+    }
+
+    .menu-box-informacion.box4 h6 {
+        margin: 15px 0;
+        color: #ccc;
+    }
+
+    .menu-box-informacion.box4 a {
+        display: inline-block;
+        margin: 15px 20px;
+        color: #ffd700;
+        text-decoration: none;
+        font-size: 1.1em;
+    }
+
+    .menu-box-informacion.box4 a:hover {
+        text-decoration: underline;
+    }
+
+    .menu-box-informacion.box4 p {
+        margin: 20px 0;
+        color: #aaa;
+    }
+
+    .menu-box-informacion.box4 h4 {
+        margin: 10px 0;
+        font-size: 1.2em;
+        color: white;
+    }
+
+</style>
+
+<div class="menu-box box6">
+    <a class="menu-link" href="{% url 'main:more_information' %}">IN</a>
+</div>
+
+
+
+<div class="box5">
+    <img src="{{aurum_logo_url}}" alt="Logo">
+</div>
+
+
+<div class="menu-box box1">
+    <a class="menu-link" href="{% url 'main:order_users' %}">Бронювання Столика</a>
+    <a class="menu-link" href="{% url 'main:order'%}">Подивитися інші замовлення</a>
+    <a class="menu-link" href="{% url 'main:order_food'%}">Доставка їжі</a>
+</div>
+
+<div class="menu-box box2">
+    <a class="menu-link" href="{% url 'main:workers' %}">Працівникі</a>
+    <h4>Інформація про заклад</h4><br>
+    <h5>WIFI:</h5>
+    <h6>987654321</h6>
+    <h5>
+        Адреса:
+        <a href="https://www.google.com/maps?q=50.4501,30.5234" target="_blank">
+            вул. Центральна 10, Київ
+        </a>
+    </h5>
+    <h6>Вулиця борисатена 156</h6>
+    <h5>Телефон:</h5>
+    <h6>097 897 485</h6>
+    <div class="hours-container">
+        <h5 class="hours-title">Робочий час ⏷</h5>
+
+        <div class="hours-popup">
+            <p>Пн: 10:00 – 22:00</p>
+            <p>Вт: 10:00 – 22:00</p>
+            <p>Ср: 10:00 – 22:00</p>
+            <p>Чт: 10:00 – 22:00</p>
+            <p>Пт: 10:00 – 23:00</p>
+            <p>Сб: 10:00 – 23:00</p>
+            <p>Нд: 11:00 – 21:00</p>
+        </div>
+    </div>
+
+    <h6>123456</h6>
+    <a class="menu-link" href="{% url 'main:comments-create'%}">Надіслати відгук</a>
+    <a class="menu-link" href="{% url 'main:comments' %}">Переглянути Відгуки</a>
+</div>
+
+<div class="menu-box box3">
+    <a class="menu-link" href="{% url 'main:order_menu' %}">Доставка</a>
+    <a class="menu-link" href="{% url 'main:special' %}">Обране</a>
+    <a class="menu-link" href="{% url 'main:menu' %}">Меню</a>
+</div>
+
+<div class="menu-center">
+    {% include 'menu_list.html' %}
+</div>
+
+<div class="menu-box-informacion box4">
+    <h3>aurun27@gmail.com</h3>
+    <p>Контактні дані</p>
+    <h4>+380 63 897 00 98</h4>
+
+    <a href="https://www.google.com" target="_blank">Instagram</a>
+    <a href="https://www.google.com" target="_blank">Facebook</a>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const title = document.querySelector(".hours-title");
+        const popup = document.querySelector(".hours-popup");
+
+        title.addEventListener("click", () => {
+            popup.classList.toggle("show");
+
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;     
+        align-items: center;        
+        flex-direction: column;
+        padding-top: 30px;       
+    }
+
+    h1 {
+        color: #ffd700;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .orders-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .order-card {
+        background-color: #171717;
+        color: white;
+        width: 300px;       /* ширина стала більше */
+        min-height: 150px;  /* висота трохи менша */
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); 
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    .order-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+    }
+
+    select {
+        padding: 7px 10px;
+        border-radius: 6px;
+        background-color: #252525;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    select:hover {
+        background-color: #323232;
+    }

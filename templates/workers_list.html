@@ -1,0 +1,114 @@
+{% block content %}
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .workers-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .worker-card {
+        background-color: #171717;
+        color: white;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); 
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .worker-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+    }
+
+    .button {
+        padding: 0.7em 1em;
+        border-radius: 8px;
+        border: none;
+        transition: .3s ease-in-out;
+        background-color: #252525;
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+    }
+
+    .button:hover {
+        background-color: black;
+        color: white;
+    }
+    .submit-btn-return {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 50%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #e4e3dd, #b1aea3);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .submit-btn {
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: center;
+
+        padding: 12px 0;
+        width: 50%;
+        border-radius: 8px;
+
+        background: linear-gradient(135deg, #d4af37, #f5d76e);
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+
+        border: none;
+        transition: 0.5s ease-in-out;
+    }
+
+    .submit-btn:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #f5d76e, #d4af37);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    }
+</style>
+
+<div class="workers-container">
+    {% for worker in workers %}
+        <div class="worker-card">
+            {% if worker.photo %}
+                <p><img src="{{ worker.photo.url }}" alt="{{ worker.name }}" style="max-width:100%; "></p>
+            {% endif %}
+            <p>{{ worker }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<a class="submit-btn" href="{% url 'main:workers-create'%}">Додати працівника</a>
+<a href="{% url 'main:start_page'%}" class="submit-btn-return">Головна сторінка</a>
+{% endblock %}

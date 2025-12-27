@@ -1,0 +1,72 @@
+body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #000; /* чорний фон */
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px;
+        background-color: #171717;
+        border-radius: 20px;
+        width: 300px;
+        text-align: center;
+        transition: .4s ease-in-out;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+    .form:hover {
+        transform: scale(1.05);
+        border: 1px solid black;
+    }
+
+
+    .form-box {
+        width: 400px;
+        padding: 30px;
+        position: relative;
+    }
+
+    
+    .form-box form p {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: white;
+        font-size: 1em;
+    }
+
+    
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background-color: #252525;
+        color: white;
+        font-size: 1em;
+        outline: none;
+    }
+
+    .form-box input:focus,
+    .form-box select:focus,
+    .form-box textarea:focus {
+        border-color: #555;
+    }
+
+    
+    .form-box h3 {
+        color: white;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    
